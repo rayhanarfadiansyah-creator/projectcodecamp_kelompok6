@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+  Kelola User
+</title>
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="Admindashboard.css"
+>
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+<div class="logo-box">
+
+<img
+  src="logo.png"
+  alt="Logo"
+>
+
+<h2>
+GO GREEN
+</h2>
+
+</div>
+
+<nav class="sidebar-menu">
+
+<a href="Admindashboard.html">
+Dashboard
+</a>
+
+<a
+  href="Kelolauser.html"
+  class="active"
+>
+Kelola User
+</a>
+
+<a href="Kelolareward.html">
+Kelola Reward
+</a>
+
+<a href="Kelolalaporan.html">
+Kelola Laporan
+</a>
+
+</nav>
+
+</aside>
+
+<main class="main-content">
+
+<div class="topbar">
+
+<h1>
+Kelola User
+</h1>
+
+<div class="admin-profile">
+
+<img
+  src="profile.png"
+  alt="Admin"
+>
+
+<span>
+Admin
+</span>
+
+</div>
+
+</div>
+
+<div class="form-box">
+
+<input
+  type="text"
+  id="nama"
+  placeholder="Nama"
+>
+
+<input
+  type="email"
+  id="email"
+  placeholder="Email"
+>
+
+<select
+  id="role"
+  aria-label="Role User"
+>
+
+<option value="user">
+User
+</option>
+
+<option value="admin">
+Admin
+</option>
+
+</select>
+
+<input
+  type="number"
+  id="botol"
+  placeholder="Jumlah Botol"
+>
+
+<input
+  type="number"
+  id="point"
+  placeholder="Jumlah Point"
+>
+
+<button
+  type="button"
+  class="add-btn"
+  onclick="tambahUser()"
+>
+Tambah User
+</button>
+
+</div>
+
+<section class="table-section">
+
+<div class="section-header">
+
+<h2>
+Data User
+</h2>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Email</th>
+<th>Role</th>
+<th>Aksi</th>
+
+</tr>
+
+</thead>
+
+<tbody id="userTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+</div>
+
+<script>
+
+const table =
+document.getElementById(
+'userTable'
+);
+
+fetch(
+'http://localhost:8080/api/users',
+{
+
+method:'POST',
+
+headers:{
+'Content-Type':
+'application/x-www-form-urlencoded'
+},
+
+body:new URLSearchParams({
+
+nama:nama,
+
+email:email,
+
+role:role,
+
+jumlah_botol:botol,
+
+jumlah_point:point
+
+})
+
+}
+
+)
+
+.then(async response => {
+
+const text =
+await response.text();
+
+console.log(text);
+
+return JSON.parse(text);
+
+})
+
+.then(data => {
+
+alert(
+data.message
+);
+
+location.reload();
+
+})
+
+.catch(error => {
+
+console.log(error);
+
+alert(error);
+
+});
+
+function tambahUser(){
+
+const nama =
+document.getElementById(
+'nama'
+).value;
+
+const email =
+document.getElementById(
+'email'
+).value;
+
+const role =
+document.getElementById(
+'role'
+).value;
+
+const botol =
+document.getElementById(
+'botol'
+).value;
+
+const point =
+document.getElementById(
+'point'
+).value;
+
+fetch(
+'http://localhost:8080/api/users',
+{
+
+method:'POST',
+
+headers:{
+'Content-Type':
+'application/x-www-form-urlencoded'
+},
+
+body:new URLSearchParams({
+
+nama:nama,
+
+email:email,
+
+role:role,
+
+jumlah_botol:botol,
+
+jumlah_point:point
+
+})
+
+}
+
+)
+
+.then(response => response.json())
+
+.then(data => {
+
+alert(
+data.message
+);
+
+location.reload();
+
+})
+
+.catch(error => {
+
+console.log(error);
+
+alert(
+'Gagal tambah user'
+);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
