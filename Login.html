@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123d2b">
+  <meta name="description" content="Masuk ke Go Green dan mulai aksi kecil untuk bumi yang lebih baik.">
+  <title>Masuk | Go Green</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Login.css">
+  <link rel="stylesheet" href="theme-refresh.css">
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="login-visual" aria-label="Tentang Go Green">
+      <a class="brand brand-light" href="Home1.html">
+        <img src="logo.png" alt="" onerror="this.hidden=true">
+        <span>go<span>green</span><i>.</i></span>
+      </a>
+      <div class="visual-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> SMALL ACTION, BIG IMPACT</span>
+        <h1>Bumi yang lebih baik dimulai dari <em>aksi kecilmu.</em></h1>
+        <p>Pilah, kumpulkan, dan tukarkan sampah menjadi sesuatu yang lebih berarti.</p>
+      </div>
+      <div class="visual-bottom">
+        <div class="visual-stat"><strong>01</strong><span>Mulai dari sekitar kita</span></div>
+        <div class="visual-stat"><strong>02</strong><span>Konsisten setiap hari</span></div>
+      </div>
+      <div class="visual-orb orb-one"></div><div class="visual-orb orb-two"></div>
+    </section>
+
+    <section class="login-panel">
+      <div class="panel-top"><a class="back-link" href="Home1.html">← <span>Kembali ke beranda</span></a><span class="secure-label">●&nbsp; Ruang ramah lingkungan</span></div>
+      <div class="form-wrap">
+        <div class="mobile-brand"><span>go<span>green</span><i>.</i></span></div>
+        <span class="form-kicker">SENANG MELIHATMU KEMBALI</span>
+        <h2>Selamat datang<br>kembali<span>.</span></h2>
+        <p class="form-subtitle">Masuk ke akunmu dan lanjutkan kontribusi baik untuk bumi.</p>
+        <form id="loginForm" novalidate>
+          <div class="field"><label for="email">Email address</label><div class="field-control"><span class="field-icon" aria-hidden="true">✉</span><input id="email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" required></div></div>
+          <div class="field"><div class="label-row"><label for="password">Password</label></div><div class="field-control"><span class="field-icon" aria-hidden="true">⌑</span><input id="password" name="password" type="password" placeholder="Masukkan password" autocomplete="current-password" required minlength="6"><button class="password-toggle" type="button" id="togglePassword" aria-label="Tampilkan password">Lihat</button></div></div>
+          <button class="submit-btn" type="submit">Masuk ke akun <span>→</span></button>
+          <p class="form-notice" id="formNotice" role="status" aria-live="polite">Backend login belum terhubung. Form ini masih tahap frontend.</p>
+        </form>
+        <div class="form-divider"><span>atau lanjutkan dengan</span></div>
+        <a class="google-btn" href="http://localhost:8080/login"><img src="google.png" alt="" onerror="this.hidden=true">Lanjutkan dengan Google</a>
+        <p class="signup-note">Belum punya akun? <a href="Register.html" id="registerLink">Daftar sekarang</a></p>
+      </div>
+      <footer class="panel-footer">© 2026 Go Green · Kelompok 6</footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

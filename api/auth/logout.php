@@ -1,0 +1,2 @@
+<?php
+require __DIR__.'/../bootstrap.php'; if($_SERVER['REQUEST_METHOD']!=='POST') respond(['success'=>false,'message'=>'Method tidak diizinkan.'],405); check_csrf(); $_SESSION=[]; if(ini_get('session.use_cookies')) { $p=session_get_cookie_params(); setcookie(session_name(),'',['expires'=>time()-42000,'path'=>$p['path'],'secure'=>$p['secure'],'httponly'=>$p['httponly'],'samesite'=>'Lax']); } session_destroy(); respond(['success'=>true,'message'=>'Berhasil keluar.']);

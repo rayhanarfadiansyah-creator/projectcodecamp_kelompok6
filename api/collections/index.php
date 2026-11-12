@@ -1,0 +1,5 @@
+<?php
+require __DIR__.'/../bootstrap.php'; $u=require_login();
+if($_SERVER['REQUEST_METHOD']==='GET'){ $q=$pdo->prepare('SELECT id,waste_type,weight_kg,notes,status,points_awarded,created_at FROM collections WHERE user_id=? ORDER BY created_at DESC'); $q->execute([$u['id']]); respond(['success'=>true,'collections'=>$q->fetchAll()]); }
+if($_SERVER['REQUEST_METHOD']==='POST'){ check_csrf(); $d=json_input(); $type=trim($d['waste_type']??''); $weight=filter_var($d['weight_kg']??null,FILTER_VALIDATE_FLOAT); $notes=trim($d['notes']??''); $allowed=['Plastik','Kertas','Kaca','Logam','Organik','Elektronik','Lainnya']; if(!in_array($type,$allowed,true)||$weight===false||$weight<=0||$weight>500) respond(['success'=>false,'message'=>'Jenis sampah atau berat tidak valid (maksimal 500 kg).'],422); $q=$pdo->prepare('INSERT INTO collections(user_id,waste_type,weight_kg,notes) VALUES(?,?,?,?)'); $q->execute([$u['id'],$type,$weight,$notes?:null]); respond(['success'=>true,'message'=>'Pengajuan pengumpulan berhasil dikirim. Poin diberikan setelah diverifikasi admin.']); }
+respond(['success'=>false,'message'=>'Method tidak diizinkan.'],405);

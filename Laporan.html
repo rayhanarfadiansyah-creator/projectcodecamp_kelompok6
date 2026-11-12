@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buat Laporan Baru</title>
+  <link rel="stylesheet" href="Laporan.css">
+  <link rel="stylesheet" href="theme-refresh.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="topbar">
+                <img
+                  class="profile-img"
+                  src="profile.png"
+                  alt="Profile"
+                >
+                <img
+                  class="logo"
+                  src="logo.png"
+                  alt="Go Green Logo"
+                >
+            </div>
+            <div class="hero-text">
+                <h1>
+                  Buat Laporan Baru
+                </h1>
+                    <p>
+                      Sampaikan laporan masalah lingkungan
+                      dengan mudah dan cepat.
+                    </p>
+            </div>
+        </header>
+        <nav class="menu">
+            <a href="Home2.html" class="menu-item">
+              HOME
+            </a>
+            <a href="" class="menu-item active">
+              LAPORAN
+            </a>
+            <a href="Pengumpulan.html" class="menu-item">
+              PENGUMPULAN
+            </a>
+            <a href="Reward.html" class="menu-item">
+              REWARD
+            </a>
+        </nav>
+        <section class="page-title">
+          <h1>BUAT LAPORAN BARU</h1>
+        </section>
+    <form class="report-form">
+      <div class="form-card">
+        <label>Judul Laporan</label>
+        <input
+          type="text"
+          placeholder="Masukan judul laporan Anda..."
+        >
+      </div>
+      <div class="form-card">
+        <label>Detail Masalah & Lokasi</label>
+        <div class="detail-box">
+          <div class="detail-item">
+              <h3>Kategori Masalah</h3>
+              <option value="">Pilih kategori</option>
+              <option value="sampah">
+                Tumpukan Sampah Plastik
+              </option>
+              <option value="rusak">
+                Fasilitas Rusak
+              </option>
+              <option value="limbah">
+                Limbah Rumah
+              </option>
+              <option value="lainnya">
+                Lainnya
+              </option>
+            </div>
+          <div class="detail-item">
+            <h3>Lokasi</h3>
+            <div class="location-box">
+              Jl. Melati No. 12, Jakarta Selatan
+              <button type="button">
+                Ubah
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <label>Deskripsi Masalah</label>
+        <textarea
+          placeholder="Jelaskan detail masalah secara lengkap..."
+        ></textarea>
+      </div>
+      <div class="form-card">
+        <label>Unggah Bukti Foto (Wajib)</label>
+        <div class="upload-box">
+          <img
+            src="camera-solid-full.svg"
+            alt="Camera Icon"
+          >
+          <p>
+            Ketuk untuk mengambil foto
+            atau unggahan dari Galeri.
+          </p>
+        </div>
+      </div>
+      <div class="form-card">
+        <button
+              class="submit-btn"
+              type="button"
+              onclick="window.location.href='Laporanberhasil.html'"
+            >
+              KIRIM LAPORAN
+            </button>
+                  </div>
+                </form>
+              </main>
+                <footer class="footer">
+                      <p>
+                        © 2026 Go Green. Developed by Kelompok 6.
+                      </p>
+                </footer>
+</body>
+</html>

@@ -1,0 +1,2 @@
+<?php
+require __DIR__.'/../bootstrap.php'; require_admin(); $stats=[]; foreach(['users','reports','collections','redemptions'] as $t){$stats[$t]=(int)$pdo->query("SELECT COUNT(*) FROM `$t`")->fetchColumn();} $stats['pending_reports']=(int)$pdo->query("SELECT COUNT(*) FROM reports WHERE status='pending'")->fetchColumn(); $stats['pending_collections']=(int)$pdo->query("SELECT COUNT(*) FROM collections WHERE status='pending'")->fetchColumn(); respond(['success'=>true,'stats'=>$stats]);

@@ -1,0 +1,2 @@
+<?php
+require __DIR__.'/../bootstrap.php'; require_admin(); $reports=$pdo->query("SELECT r.*,u.name user_name FROM reports r JOIN users u ON u.id=r.user_id WHERE r.status='pending' ORDER BY r.created_at")->fetchAll(); $collections=$pdo->query("SELECT c.*,u.name user_name FROM collections c JOIN users u ON u.id=c.user_id WHERE c.status='pending' ORDER BY c.created_at")->fetchAll(); respond(['success'=>true,'reports'=>$reports,'collections'=>$collections]);
